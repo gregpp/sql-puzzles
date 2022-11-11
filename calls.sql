@@ -33,10 +33,10 @@ Sarah
 WITH cte1
 AS 
 (
-  SELECT caller AS number, duration
+  SELECT id, caller AS number, duration
   FROM calls
   UNION ALL
-  SELECT callee, duration
+  SELECT id, callee, duration
   FROM calls
 ),
 cte2
