@@ -42,7 +42,7 @@ AS
 cte2
 AS
 (
-  SELECT number
+  SELECT number, SUM(duration) AS total_duration
   FROM cte1
   GROUP BY number
   HAVING SUM(duration) >=10 AND COUNT(id) >=3
@@ -51,4 +51,5 @@ SELECT name
 FROM phones p
 JOIN cte2
 ON p.number = cte2.number
+ORDER BY total_duration DESC, name
 ;
